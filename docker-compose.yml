@@ -1,0 +1,31 @@
+version: '3'
+services:
+  node1:
+    build: .
+    container_name: gossip_node1
+    networks:
+      - gossip_network
+    environment:
+      - RUST_LOG=info
+
+  node2:
+    build: .
+    container_name: gossip_node2
+    networks:
+      - gossip_network
+    environment:
+      - RUST_LOG=info
+
+  node3:
+    build: .
+    container_name: gossip_node3
+    networks:
+      - gossip_network
+    environment:
+      - RUST_LOG=info
+
+  # Add more nodes as needed
+
+networks:
+  gossip_network:
+    driver: bridge
